@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eBiashara</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <script src="{% static 'bootstrap/js/jquery-3.4.0.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+</head>
+<body>
+<section>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'home-url' %}">eBiashara</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home-url' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add-prod-url' %}">ADD PRODUCTS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view-prod-url' %}">VIEW PRODUCTS</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register-url' %}">REGISTER</a>
+                 </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login-url' %}">LOGIN</a>
+            </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout-url' %}">LOGOUT</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+{% for message in messages  %}
+	<p class="text-success text-center">{{ message }}</p>
+{% endfor %}
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
